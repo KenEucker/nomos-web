@@ -6,7 +6,7 @@
     <title>Nomos — Full-stack framework for Astro</title>
     <meta
       name="description"
-      content="Nomos is a full-stack framework for Astro: API, admin UI, auth, plugins, and conventions that make building apps fast—especially with LLMs."
+      content="Nomos is an open-source full-stack framework for Astro: API, admin UI, auth, plugins, and conventions that make building apps fast—especially with LLMs."
     />
     <meta name="theme-color" content="#0b1220" />
 
@@ -52,44 +52,23 @@
         --accent2: #7c3aed;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        height: 100%;
-      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+
       body {
         margin: 0;
         font-family: var(--sans);
         color: var(--text);
-        background: radial-gradient(
-            1200px 700px at 20% 10%,
-            rgba(121, 184, 255, 0.22),
-            transparent 60%
-          ),
-          radial-gradient(
-            900px 600px at 85% 20%,
-            rgba(167, 139, 250, 0.22),
-            transparent 55%
-          ),
-          radial-gradient(
-            900px 900px at 50% 110%,
-            rgba(52, 211, 153, 0.12),
-            transparent 55%
-          ),
+        background:
+          radial-gradient(1200px 700px at 20% 10%, rgba(121, 184, 255, 0.22), transparent 60%),
+          radial-gradient(900px 600px at 85% 20%, rgba(167, 139, 250, 0.22), transparent 55%),
+          radial-gradient(900px 900px at 50% 110%, rgba(52, 211, 153, 0.12), transparent 55%),
           linear-gradient(180deg, var(--bg), var(--bg2));
         overflow-x: hidden;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
+      a { color: inherit; text-decoration: none; }
+      a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
       .wrap {
         width: min(1120px, calc(100% - 48px));
@@ -101,19 +80,11 @@
         top: 0;
         z-index: 20;
         backdrop-filter: blur(10px);
-        background: linear-gradient(
-          180deg,
-          rgba(10, 14, 28, 0.72),
-          rgba(10, 14, 28, 0.38)
-        );
+        background: linear-gradient(180deg, rgba(10, 14, 28, 0.72), rgba(10, 14, 28, 0.38));
         border-bottom: 1px solid var(--border);
       }
       [data-theme="light"] header {
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.85),
-          rgba(255, 255, 255, 0.65)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
       }
 
       .nav {
@@ -123,6 +94,7 @@
         padding: 14px 0;
         gap: 18px;
       }
+
       .brand {
         display: inline-flex;
         align-items: center;
@@ -130,17 +102,10 @@
         font-weight: 700;
         letter-spacing: 0.2px;
       }
-      .brand img {
-        display: block;
-      }
-      .logo {
-        width: 32px;
-        height: 32px;
-      }
-      .logoText {
-        height: 32px;
-        width: auto;
-      }
+      .brand img { display: block; }
+      .logo { width: 32px; height: 32px; }
+      .logoText { height: 32px; width: auto; }
+
       .brandText {
         display: flex;
         flex-direction: column;
@@ -161,16 +126,14 @@
         font-weight: 550;
         font-size: 14px;
       }
-      .navlinks a:hover {
-        color: var(--text);
-        text-decoration: none;
-      }
+      .navlinks a:hover { color: var(--text); text-decoration: none; }
 
       .actions {
         display: flex;
         align-items: center;
         gap: 10px;
       }
+
       .btn {
         display: inline-flex;
         align-items: center;
@@ -186,34 +149,31 @@
         cursor: pointer;
         user-select: none;
       }
-      .btn:hover {
-        background: rgba(255, 255, 255, 0.07);
-        text-decoration: none;
-      }
+      .btn:hover { background: rgba(255, 255, 255, 0.07); text-decoration: none; }
+
       .btn.primary {
         border-color: transparent;
         background: linear-gradient(135deg, var(--accent), var(--accent2));
         color: white;
         box-shadow: 0 16px 45px rgba(121, 184, 255, 0.16);
       }
-      .btn.primary:hover {
-        filter: brightness(1.05);
-      }
+      .btn.primary:hover { filter: brightness(1.05); }
+
       .btn.icon {
         padding: 10px;
         width: 40px;
         justify-content: center;
       }
 
-      .hero {
-        padding: 64px 0 30px;
-      }
+      .hero { padding: 64px 0 30px; }
+
       .heroGrid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 26px;
         align-items: start;
       }
+
       .kicker {
         display: inline-flex;
         align-items: center;
@@ -241,12 +201,14 @@
         line-height: 1.02;
         letter-spacing: -0.02em;
       }
+
       .grad {
         background: linear-gradient(135deg, var(--accent), var(--accent2));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
+
       .lead {
         margin: 0;
         color: var(--muted);
@@ -272,6 +234,7 @@
         color: var(--faint);
         font-size: 13px;
       }
+
       .pill {
         display: inline-flex;
         align-items: center;
@@ -281,23 +244,15 @@
         border: 1px solid var(--border);
         background: rgba(255, 255, 255, 0.03);
       }
-      .pill code {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--text);
-      }
 
       .codeCard {
         border-radius: var(--radius2);
         border: 1px solid var(--border);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.05),
-          rgba(255, 255, 255, 0.02)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
         box-shadow: var(--shadow2);
         overflow: hidden;
       }
+
       .codeTop {
         display: flex;
         align-items: center;
@@ -307,20 +262,11 @@
         color: var(--muted);
         font-size: 13px;
       }
-      .dots {
-        display: inline-flex;
-        gap: 7px;
-        align-items: center;
-      }
-      .dots span {
-        width: 10px;
-        height: 10px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.16);
-      }
-      [data-theme="light"] .dots span {
-        background: rgba(10, 20, 40, 0.18);
-      }
+
+      .dots { display: inline-flex; gap: 7px; align-items: center; }
+      .dots span { width: 10px; height: 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.16); }
+      [data-theme="light"] .dots span { background: rgba(10, 20, 40, 0.18); }
+
       pre {
         margin: 0;
         padding: 16px 16px 18px;
@@ -330,41 +276,25 @@
         line-height: 1.55;
         color: rgba(255, 255, 255, 0.88);
       }
-      [data-theme="light"] pre {
-        color: rgba(10, 20, 40, 0.88);
-      }
-      .hl-k {
-        color: #93c5fd;
-      }
-      .hl-s {
-        color: #a7f3d0;
-      }
-      .hl-c {
-        color: rgba(255, 255, 255, 0.45);
-      }
-      [data-theme="light"] .hl-c {
-        color: rgba(10, 20, 40, 0.45);
-      }
-      .hl-f {
-        color: #fbcfe8;
-      }
-      .hl-t {
-        color: #fde68a;
-      }
+      [data-theme="light"] pre { color: rgba(10, 20, 40, 0.88); }
 
-      section {
-        padding: 54px 0;
-      }
+      .hl-k { color: #93c5fd; }
+      .hl-s { color: #a7f3d0; }
+      .hl-c { color: rgba(255, 255, 255, 0.45); }
+      [data-theme="light"] .hl-c { color: rgba(10, 20, 40, 0.45); }
+      .hl-f { color: #fbcfe8; }
+      .hl-t { color: #fde68a; }
+
+      section { padding: 54px 0; }
+
       .sectionHead {
         display: grid;
         gap: 10px;
         margin-bottom: 18px;
       }
-      h2 {
-        margin: 0;
-        font-size: 28px;
-        letter-spacing: -0.01em;
-      }
+
+      h2 { margin: 0; font-size: 28px; letter-spacing: -0.01em; }
+
       .sub {
         margin: 0;
         color: var(--muted);
@@ -377,6 +307,7 @@
         grid-template-columns: 1fr;
         gap: 14px;
       }
+
       .card {
         border-radius: var(--radius);
         border: 1px solid var(--border);
@@ -386,28 +317,18 @@
         position: relative;
         overflow: hidden;
       }
+
       .card::after {
         content: "";
         position: absolute;
         inset: -1px;
-        background: radial-gradient(
-          600px 200px at 10% 0%,
-          rgba(121, 184, 255, 0.11),
-          transparent 60%
-        );
+        background: radial-gradient(600px 200px at 10% 0%, rgba(121, 184, 255, 0.11), transparent 60%);
         pointer-events: none;
       }
-      .card h3 {
-        margin: 0 0 8px;
-        font-size: 16px;
-        letter-spacing: -0.01em;
-      }
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.55;
-        font-size: 14px;
-      }
+
+      .card h3 { margin: 0 0 8px; font-size: 16px; letter-spacing: -0.01em; }
+      .card p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14px; }
+
       .iconBox {
         width: 40px;
         height: 40px;
@@ -418,10 +339,7 @@
         background: rgba(255, 255, 255, 0.04);
         margin-bottom: 10px;
       }
-      .iconBox svg {
-        width: 20px;
-        height: 20px;
-      }
+      .iconBox svg { width: 20px; height: 20px; }
 
       .split {
         display: grid;
@@ -429,11 +347,9 @@
         gap: 16px;
         align-items: start;
       }
-      .list {
-        display: grid;
-        gap: 10px;
-        margin-top: 10px;
-      }
+
+      .list { display: grid; gap: 10px; margin-top: 10px; }
+
       .li {
         display: flex;
         gap: 12px;
@@ -443,15 +359,10 @@
         border: 1px solid var(--border);
         background: var(--card);
       }
-      .li strong {
-        display: block;
-        margin-bottom: 2px;
-      }
-      .li span {
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.5;
-      }
+
+      .li strong { display: block; margin-bottom: 2px; }
+      .li span { color: var(--muted); font-size: 14px; line-height: 1.5; }
+
       .check {
         width: 22px;
         height: 22px;
@@ -463,35 +374,22 @@
         flex: 0 0 auto;
         margin-top: 1px;
       }
-      .check svg {
-        width: 14px;
-        height: 14px;
-      }
+      .check svg { width: 14px; height: 14px; }
 
       .ctaBand {
         border-radius: var(--radius2);
         border: 1px solid var(--border);
-        background: linear-gradient(
-          135deg,
-          rgba(121, 184, 255, 0.16),
-          rgba(167, 139, 250, 0.16)
-        );
+        background: linear-gradient(135deg, rgba(121, 184, 255, 0.16), rgba(167, 139, 250, 0.16));
         box-shadow: var(--shadow);
         padding: 18px;
         display: grid;
         gap: 12px;
         align-items: center;
       }
-      .ctaBand h3 {
-        margin: 0;
-        font-size: 18px;
-      }
-      .ctaBand p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.6;
-        font-size: 14px;
-      }
+
+      .ctaBand h3 { margin: 0; font-size: 18px; }
+      .ctaBand p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 14px; }
+
       .ctaBand .row {
         display: flex;
         flex-wrap: wrap;
@@ -504,58 +402,61 @@
         color: var(--faint);
         border-top: 1px solid var(--border);
       }
+
       .footGrid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 16px;
       }
+
       .footLinks {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
+
       .footLinks a {
         color: var(--muted);
         font-weight: 600;
         font-size: 14px;
       }
+
       .footLinks a:hover {
         color: var(--text);
         text-decoration: none;
       }
 
       @media (min-width: 860px) {
-        .navlinks {
-          display: flex;
-        }
+        .navlinks { display: flex; }
+
         .heroGrid {
           grid-template-columns: 1.12fr 0.88fr;
           align-items: center;
           gap: 24px;
         }
-        .grid3 {
-          grid-template-columns: repeat(3, 1fr);
-        }
+
+        .grid3 { grid-template-columns: repeat(3, 1fr); }
+
         .split {
           grid-template-columns: 1fr 1fr;
           gap: 18px;
         }
+
         .ctaBand {
           grid-template-columns: 1.25fr 0.75fr;
           padding: 20px;
         }
+
         .footGrid {
           grid-template-columns: 1.2fr 0.8fr;
           align-items: start;
         }
-        .footLinks {
-          grid-template-columns: repeat(3, 1fr);
-        }
+
+        .footLinks { grid-template-columns: repeat(3, 1fr); }
       }
 
-      .muted {
-        color: var(--muted);
-      }
+      .muted { color: var(--muted); }
+
       .kbd {
         font-family: var(--mono);
         font-size: 12px;
@@ -565,16 +466,46 @@
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.03);
       }
-      .hr {
-        height: 1px;
-        background: var(--border);
-        margin: 0;
+
+      .hr { height: 1px; background: var(--border); margin: 0; }
+
+      .hidden { display: none; }
+
+      /* Docs layout + “GitHub-like” frame styling */
+      #docs-container {
+        padding: 22px 0 54px;
+      }
+      #doc-content {
+        width: min(980px, calc(100% - 48px));
+        margin: 18px auto 0;
+        padding: 22px 22px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: var(--shadow2);
+      }
+      [data-theme="light"] #doc-content {
+        background: rgba(10, 20, 40, 0.04);
+      }
+
+      /* Keep markdown “content” styling scoped */
+      .markdown-body {
+        background: transparent;
+        max-width: 980px;
+        margin: 0 auto;
+        color-scheme: dark;
       }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"
+    />
   </head>
 
   <body>
-    <header>
+    <header id="top">
       <div class="wrap nav">
         <a class="brand" href="#top" aria-label="Nomos home">
           <span class="brandText">
@@ -583,11 +514,20 @@
           </span>
         </a>
 
-        <nav class="navlinks" aria-label="Primary">
+        <nav id="primary-nav" class="navlinks" aria-label="Primary">
+          <a href="#docs" id="docs-link">Docs</a>
           <a href="#features">Features</a>
           <a href="#developer-experience">DX</a>
           <a href="#architecture">Architecture</a>
           <a href="#getting-started">Getting started</a>
+        </nav>
+
+        <nav id="docs-nav" class="navlinks hidden" aria-label="Docs">
+          <a href="#" id="docs-home">Home</a>
+          <a href="#intro">Intro</a>
+          <a href="#config">Config</a>
+          <a href="#routing">Routing</a>
+          <a href="#plugins">Plugins</a>
         </nav>
 
         <div class="actions">
@@ -602,21 +542,25 @@
             </svg>
           </button>
 
-          <a class="btn" href="https://github.com/KenEucker/nomos/" target="_blank" rel="noreferrer">
-            GitHub
-          </a>
+          <a class="btn" href="https://github.com/KenEucker/nomos/" target="_blank" rel="noreferrer">GitHub</a>
           <a class="btn primary" href="#getting-started">Get started</a>
         </div>
       </div>
     </header>
 
-    <main id="top">
+    <main id="docs-container" class="hidden">
+      <article id="doc-content" class="markdown-body">
+        <p>Loading…</p>
+      </article>
+    </main>
+
+    <main id="main-container">
       <div class="wrap hero">
         <div class="heroGrid">
           <div>
             <div class="kicker">
               <span class="dot" aria-hidden="true"></span>
-              Astro’s “Next.js / Nuxt.js” moment — but for full-stack
+              Open-source full-stack tooling for Astro projects
             </div>
 
             <h1>
@@ -625,8 +569,8 @@
             </h1>
 
             <p class="lead">
-              <strong>Nomos</strong> is a full-stack framework for Astro: opinionated
-              structure, a Fastify-powered API layer, a pluggable admin UI, auth,
+              <strong>Nomos</strong> is an <strong>open-source</strong> full-stack framework for Astro:
+              opinionated structure, a Fastify-powered API layer, a pluggable admin UI, auth,
               and an extension system designed to stay simple and LLM-friendly.
             </p>
 
@@ -643,7 +587,7 @@
 
             <div class="trustRow" aria-label="Highlights">
               <span class="pill"><span aria-hidden="true">⚡</span> Server + Admin in one place</span>
-              <span class="pill"><span aria-hidden="true">🔌</span> WordPress-style plugins</span>
+              <span class="pill"><span aria-hidden="true">🔌</span> Rich plugin ecosystem</span>
               <span class="pill"><span aria-hidden="true">🧠</span> LLM-friendly conventions</span>
               <span class="pill"><span aria-hidden="true">📄</span> OpenAPI / Swagger docs</span>
             </div>
@@ -655,8 +599,7 @@
               <span class="muted">nomos.config.ts</span>
             </div>
 
-            <pre><code><span class="hl-c">// Nomos is to Astro what Next.js/Nuxt.js are to React/Vue:</span>
-<span class="hl-c">// file-based structure + plugins + API + admin.</span>
+            <pre><code><span class="hl-c">// File-based structure + plugins + API + admin.</span>
 
 <span class="hl-k">export default</span> {
   app: { name: <span class="hl-s">"Nomos"</span> },
@@ -686,8 +629,8 @@
           <div class="sectionHead">
             <h2>What Nomos gives you</h2>
             <p class="sub">
-              Next.js and Nuxt.js feel productive because they bundle the “usual suspects.”
-              Nomos does the same for Astro — without taking away Astro’s flexibility.
+              Nomos bundles the essentials for real apps: a backend API, an admin UI, auth, and clean conventions—
+              while keeping the structure explicit and easy to extend.
             </p>
           </div>
 
@@ -725,7 +668,7 @@
               <h3>Admin UI that maps to your API</h3>
               <p>
                 Resource-driven admin pages (list/create/edit) powered by your API.
-                Keep the admin in the same server — like Laravel/WordPress-style productivity.
+                Keep the admin in the same server so your app stays coherent.
               </p>
             </article>
 
@@ -798,10 +741,10 @@
           <div class="split">
             <div>
               <div class="sectionHead">
-                <h2>Developer experience like Next/Nuxt</h2>
+                <h2>Designed for a fast inner loop</h2>
                 <p class="sub">
-                  Nomos focuses on the “inner loop”: fast scaffolding, consistent primitives,
-                  and a structure that makes feature work feel obvious.
+                  Nomos focuses on scaffolding, consistent primitives, and a structure that makes feature work feel obvious—
+                  especially when collaborating with LLMs.
                 </p>
               </div>
 
@@ -843,7 +786,7 @@
                     </svg>
                   </div>
                   <div>
-                    <strong>Docs that are always accurate</strong>
+                    <strong>Docs that stay accurate</strong>
                     <span>
                       OpenAPI docs derived from your code and config help teams and tools stay aligned.
                     </span>
@@ -899,7 +842,10 @@
 
             <article class="card">
               <h3>Nomos plugins</h3>
-              <p>Opt-in modules that register routes, admin resources, hooks, and shared utilities.</p>
+              <p>
+                Opt-in modules that register routes, admin resources, hooks, and shared utilities.
+                <strong>Upcoming:</strong> a richer plugin ecosystem that makes discovery, sharing, and reuse easier.
+              </p>
             </article>
           </div>
         </div>
@@ -935,17 +881,12 @@ npm run dev</code></pre>
               <div>
                 <h3>Explore the code on GitHub</h3>
                 <p>
-                  Nomos is actively evolving. The repository is the best source of truth for structure,
+                  Nomos is <strong>open-source</strong> and actively evolving. The repository is the best source of truth for structure,
                   current features, and direction.
                 </p>
               </div>
               <div class="row">
-                <a
-                  class="btn primary"
-                  href="https://github.com/KenEucker/nomos/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a class="btn primary" href="https://github.com/KenEucker/nomos/" target="_blank" rel="noreferrer">
                   View repo
                 </a>
                 <a class="btn" href="#features">See features</a>
@@ -969,8 +910,8 @@ npm run dev</code></pre>
             </span>
           </div>
           <div class="muted" style="line-height: 1.6; max-width: 70ch">
-            Nomos aims for the “Next/Nuxt feeling” in Astro projects: one place for UI + API + admin + plugins,
-            with conventions that stay understandable.
+            Nomos is an open-source framework that brings API + admin + auth + plugins into a single Astro project,
+            with conventions that stay understandable and extensible.
           </div>
         </div>
 
@@ -984,6 +925,79 @@ npm run dev</code></pre>
         </div>
       </div>
     </footer>
+
+    <script>
+      const DOCS = {
+        intro: "https://raw.githubusercontent.com/KenEucker/nomos/production/README.md",
+        config: "https://raw.githubusercontent.com/KenEucker/nomos/production/docs/CONFIG.md",
+        plugins: "https://raw.githubusercontent.com/KenEucker/nomos/production/docs/PLUGINS.md",
+        routing: "https://raw.githubusercontent.com/KenEucker/nomos/production/docs/routing.md"
+      };
+
+      const primaryNav = document.getElementById("primary-nav");
+      const docsNav = document.getElementById("docs-nav");
+      const mainContainer = document.getElementById("main-container");
+      const docsContainer = document.getElementById("docs-container");
+
+      const docsLink = document.getElementById("docs-link");
+      const docsHome = document.getElementById("docs-home");
+
+      async function loadDoc(url) {
+        const res = await fetch(url);
+        if (!res.ok) {
+          document.getElementById("doc-content").innerHTML =
+            "<p>Failed to load document.</p>";
+          return;
+        }
+        const md = await res.text();
+        document.getElementById("doc-content").innerHTML = marked.parse(md);
+      }
+
+      function setActiveDocsLink(key) {
+        docsNav.querySelectorAll("a").forEach((a) => {
+          a.classList.toggle("active", a.getAttribute("href") === `#${key}`);
+        });
+      }
+
+      function enterDocsMode(docKey = "intro") {
+        primaryNav.classList.add("hidden");
+        mainContainer.classList.add("hidden");
+        docsNav.classList.remove("hidden");
+        docsContainer.classList.remove("hidden");
+
+        if (DOCS[docKey]) {
+          loadDoc(DOCS[docKey]);
+          setActiveDocsLink(docKey);
+        }
+      }
+
+      function exitDocsMode() {
+        docsNav.classList.add("hidden");
+        mainContainer.classList.remove("hidden");
+        docsContainer.classList.add("hidden");
+        primaryNav.classList.remove("hidden");
+        history.pushState("", document.title, window.location.pathname);
+      }
+
+      docsLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        enterDocsMode("intro");
+      });
+
+      docsHome.addEventListener("click", (e) => {
+        e.preventDefault();
+        exitDocsMode();
+      });
+
+      window.addEventListener("hashchange", () => {
+        const key = location.hash.replace("#", "");
+        if (DOCS[key]) enterDocsMode(key);
+      });
+
+      if (location.hash && DOCS[location.hash.replace("#", "")]) {
+        enterDocsMode(location.hash.replace("#", ""));
+      }
+    </script>
 
     <script>
       (function () {
@@ -1004,14 +1018,10 @@ npm run dev</code></pre>
         var root = document.documentElement;
         var key = "nomos-theme";
         var stored = null;
-        try {
-          stored = localStorage.getItem(key);
-        } catch (_) {}
-        if (stored === "light" || stored === "dark") {
-          root.setAttribute("data-theme", stored);
-        } else {
-          root.setAttribute("data-theme", "dark");
-        }
+        try { stored = localStorage.getItem(key); } catch (_) {}
+
+        if (stored === "light" || stored === "dark") root.setAttribute("data-theme", stored);
+        else root.setAttribute("data-theme", "dark");
 
         var btn = document.getElementById("themeBtn");
         if (btn) {
@@ -1019,9 +1029,7 @@ npm run dev</code></pre>
             var cur = root.getAttribute("data-theme") === "light" ? "light" : "dark";
             var next = cur === "light" ? "dark" : "light";
             root.setAttribute("data-theme", next);
-            try {
-              localStorage.setItem(key, next);
-            } catch (_) {}
+            try { localStorage.setItem(key, next); } catch (_) {}
           });
         }
       })();

@@ -3,12 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Nomos — Full-stack framework for Astro</title>
+    <title>Nomos — Full-stack Astro &amp; Node.js framework</title>
     <meta
       name="description"
-      content="Nomos is a full-stack framework for Astro: API, admin UI, auth, plugins, and conventions that make building apps fast—especially with LLMs."
+      content="Nomos is a full-stack framework for Astro and Node.js: API, admin UI, auth, plugins, and conventions that make building apps fast—especially with LLMs."
     />
+    <meta
+      name="keywords"
+      content="Astro framework, Node.js framework, full-stack framework, Next.js alternative, Nuxt.js alternative, Fastify API, admin UI, TypeScript, OpenAPI, plugins, server-side rendering"
+    />
+    <meta name="author" content="Nomos" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta name="application-name" content="Nomos" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nomos" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:title"
+      content="Nomos — Full-stack Astro &amp; Node.js framework"
+    />
+    <meta
+      property="og:description"
+      content="Nomos is a full-stack framework for Astro and Node.js with API, admin UI, auth, and plugins to ship products fast."
+    />
+    <meta property="og:image" content="nomos-logo.png" />
+    <meta
+      property="og:image:alt"
+      content="Nomos logo"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Nomos — Full-stack Astro &amp; Node.js framework"
+    />
+    <meta
+      name="twitter:description"
+      content="Nomos is a full-stack framework for Astro and Node.js with API, admin UI, auth, and plugins."
+    />
+    <meta name="twitter:image" content="nomos-logo.png" />
     <meta name="theme-color" content="#0b1220" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Nomos",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "description": "Nomos is a full-stack framework for Astro and Node.js with API, admin UI, auth, plugins, and conventions for shipping products fast.",
+        "keywords": [
+          "Astro framework",
+          "Node.js framework",
+          "full-stack framework",
+          "Next.js alternative",
+          "Nuxt.js alternative",
+          "Fastify"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Nomos a good alternative to Next.js or Nuxt.js?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nomos provides a comparable full-stack experience for Astro projects with API routes, admin UI, authentication, and a plugin system while keeping Astro’s island model."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes Nomos a strong Node.js framework?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nomos is built on Fastify for performance, organizes API routes and middleware, and ships OpenAPI docs so it is production-ready for Node.js backends."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Nomos support SEO and performance best practices?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Astro’s SSR and islands approach help deliver fast pages, and Nomos keeps metadata, OpenAPI docs, and structured data aligned for discoverability."
+            }
+          }
+        ]
+      }
+    </script>
 
     <style>
       :root {
@@ -588,6 +674,7 @@
           <a href="#developer-experience">DX</a>
           <a href="#architecture">Architecture</a>
           <a href="#getting-started">Getting started</a>
+          <a href="#faq">FAQ</a>
         </nav>
 
         <div class="actions">
@@ -616,7 +703,7 @@
           <div>
             <div class="kicker">
               <span class="dot" aria-hidden="true"></span>
-              Astro’s “Next.js / Nuxt.js” moment — but for full-stack
+              Astro’s “Next.js / Nuxt.js” moment for full-stack Node.js apps
             </div>
 
             <h1>
@@ -625,7 +712,7 @@
             </h1>
 
             <p class="lead">
-              <strong>Nomos</strong> is a full-stack framework for Astro: opinionated
+              <strong>Nomos</strong> is a full-stack Astro and Node.js framework: opinionated
               structure, a Fastify-powered API layer, a pluggable admin UI, auth,
               and an extension system designed to stay simple and LLM-friendly.
             </p>
@@ -687,7 +774,8 @@
             <h2>What Nomos gives you</h2>
             <p class="sub">
               Next.js and Nuxt.js feel productive because they bundle the “usual suspects.”
-              Nomos does the same for Astro — without taking away Astro’s flexibility.
+              Nomos does the same for Astro — giving you a modern Node.js framework
+              without taking away Astro’s flexibility.
             </p>
           </div>
 
@@ -786,7 +874,7 @@
               <h3>Conventions that scale</h3>
               <p>
                 File-based structure, predictable module boundaries, and “best default” scaffolding
-                to keep teams fast and projects coherent.
+                to keep teams fast and projects coherent across apps and services.
               </p>
             </article>
           </div>
@@ -801,7 +889,8 @@
                 <h2>Developer experience like Next/Nuxt</h2>
                 <p class="sub">
                   Nomos focuses on the “inner loop”: fast scaffolding, consistent primitives,
-                  and a structure that makes feature work feel obvious.
+                  and a structure that makes feature work feel obvious for any Astro-based
+                  full-stack web framework.
                 </p>
               </div>
 
@@ -879,11 +968,11 @@
       <section id="architecture">
         <div class="wrap">
           <div class="sectionHead">
-            <h2>How it fits together</h2>
-            <p class="sub">
-              Nomos keeps the mental model simple: Astro for UI, Fastify for API, and a plugin system
-              to add domain features without turning your app into a tangle.
-            </p>
+              <h2>How it fits together</h2>
+              <p class="sub">
+                Nomos keeps the mental model simple: Astro for UI, Fastify for API, and a plugin system
+                to add domain features without turning your app into a tangle.
+              </p>
           </div>
 
           <div class="grid3">
@@ -901,6 +990,65 @@
               <h3>Nomos plugins</h3>
               <p>Opt-in modules that register routes, admin resources, hooks, and shared utilities.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="wrap">
+          <div class="sectionHead">
+            <h2>FAQ: Nomos vs. other frameworks</h2>
+            <p class="sub">
+              Answers for teams evaluating Nomos as a Next.js alternative, Nuxt.js alternative,
+              or a full-stack Astro framework built on Node.js.
+            </p>
+          </div>
+
+          <div class="list">
+            <div class="li">
+              <div class="check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div>
+                <strong>Is Nomos a good alternative to Next.js or Nuxt.js?</strong>
+                <span>
+                  Nomos provides a comparable full-stack experience for Astro projects: API routes,
+                  an admin UI, authentication, and a plugin system while keeping Astro’s island model.
+                </span>
+              </div>
+            </div>
+
+            <div class="li">
+              <div class="check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div>
+                <strong>What makes Nomos a strong Node.js framework?</strong>
+                <span>
+                  Nomos is built on Fastify for performance, organizes API routes and middleware,
+                  and ships OpenAPI docs, so it is production-ready for Node.js backends.
+                </span>
+              </div>
+            </div>
+
+            <div class="li">
+              <div class="check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div>
+                <strong>Does Nomos support SEO and performance best practices?</strong>
+                <span>
+                  Yes. Astro’s SSR and islands approach help deliver fast pages, and Nomos keeps
+                  metadata, OpenAPI docs, and structured data aligned for discoverability.
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -981,6 +1129,7 @@ npm run dev</code></pre>
           <a href="#features">Features</a>
           <a href="https://github.com/KenEucker/nomos/" target="_blank" rel="noreferrer">GitHub</a>
           <a href="#top">Back to top</a>
+          <a href="#faq">FAQ</a>
         </div>
       </div>
     </footer>

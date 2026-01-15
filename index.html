@@ -130,25 +130,21 @@
         font-weight: 700;
         letter-spacing: 0.2px;
       }
-      .mark {
-        width: 30px;
-        height: 30px;
-        border-radius: 10px;
-        background: linear-gradient(135deg, var(--accent), var(--accent2));
-        box-shadow: 0 10px 35px rgba(121, 184, 255, 0.18);
-        position: relative;
-        overflow: hidden;
+      .brand img {
+        display: block;
       }
-      .mark::after {
-        content: "";
-        position: absolute;
-        inset: -40%;
-        background: radial-gradient(
-          circle at 30% 35%,
-          rgba(255, 255, 255, 0.35),
-          transparent 50%
-        );
-        transform: rotate(25deg);
+      .logo {
+        width: 32px;
+        height: 32px;
+      }
+      .logoText {
+        height: 32px;
+        width: auto;
+      }
+      .brandText {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
       }
       .brand small {
         display: block;
@@ -581,9 +577,8 @@
     <header>
       <div class="wrap nav">
         <a class="brand" href="#top" aria-label="Nomos home">
-          <span class="mark" aria-hidden="true"></span>
-          <span>
-            Nomos
+          <span class="brandText">
+            <img class="logoText" src="nomos-logo+text.png" alt="Nomos" />
             <small>Full-stack framework for Astro</small>
           </span>
         </a>
@@ -967,7 +962,7 @@ npm run dev</code></pre>
       <div class="wrap footGrid">
         <div>
           <div class="brand" style="margin-bottom: 10px">
-            <span class="mark" aria-hidden="true"></span>
+            <img class="logo" src="nomos-logo.png" alt="Nomos logo" />
             <span>
               Nomos
               <small>Full-stack framework for Astro</small>

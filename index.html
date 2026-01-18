@@ -1,16 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Nomos — Full-stack Astro &amp; Node.js framework</title>
+    <title>Nomos - Build production backends with AI assistance</title>
     <meta
       name="description"
-      content="Nomos is an open-source full-stack framework for Astro: API, admin UI, auth, plugins, and conventions that make building apps fast—especially with LLMs."
+      content="The first backend framework designed for AI-assisted development. Generate features with LLMs, validate automatically, ship with confidence."
     />
     <meta
       name="keywords"
-      content="Astro framework, Node.js framework, full-stack framework, Next.js alternative, Nuxt.js alternative, Fastify API, admin UI, TypeScript, OpenAPI, plugins, server-side rendering"
+      content="backend framework, AI development, LLM, plugin system, authorization, observability, Astro, Node.js, TypeScript, AI-native, sandboxed plugins"
     />
     <meta name="author" content="Nomos" />
     <meta
@@ -21,46 +21,37 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Nomos" />
     <meta property="og:locale" content="en_US" />
-    <meta
-      property="og:title"
-      content="Nomos — Full-stack Astro &amp; Node.js framework"
-    />
+    <meta property="og:title" content="Nomos - AI-Native Backend Framework" />
     <meta
       property="og:description"
-      content="Nomos is a full-stack framework for Astro and Node.js with API, admin UI, auth, and plugins to ship products fast."
+      content="Build production backends with AI assistance - safely."
     />
-    <meta property="og:image" content="nomos-logo.png" />
-    <meta
-      property="og:image:alt"
-      content="Nomos logo"
-    />
+    <meta property="og:url" content="https://nomosjs.dev" />
+    <meta property="og:image" content="https://nomosjs.dev/nomos-logo.png" />
+    <meta property="og:image:alt" content="Nomos logo" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Nomos — Full-stack Astro &amp; Node.js framework"
-    />
+    <meta name="twitter:title" content="Nomos - AI-Native Backend Framework" />
     <meta
       name="twitter:description"
-      content="Nomos is a full-stack framework for Astro and Node.js with API, admin UI, auth, and plugins."
+      content="Build production backends with AI assistance - safely."
     />
-    <meta name="twitter:image" content="nomos-logo.png" />
-    <meta name="theme-color" content="#0b1220" />
+    <meta name="twitter:image" content="https://nomosjs.dev/nomos-logo.png" />
+    <meta name="theme-color" content="#0a0a0f" />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Nomos",
+        "description": "AI-native backend framework for building production applications with LLM assistance",
+        "url": "https://nomosjs.dev",
         "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Web",
-        "description": "Nomos is a full-stack framework for Astro and Node.js with API, admin UI, auth, plugins, and conventions for shipping products fast.",
-        "keywords": [
-          "Astro framework",
-          "Node.js framework",
-          "full-stack framework",
-          "Next.js alternative",
-          "Nuxt.js alternative",
-          "Fastify"
-        ]
+        "operatingSystem": "Cross-platform",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
       }
     </script>
     <script type="application/ld+json">
@@ -70,26 +61,26 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Is Nomos a good alternative to Next.js or Nuxt.js?",
+            "name": "What makes Nomos different from other backend frameworks?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Nomos provides a comparable full-stack experience for Astro projects with API routes, admin UI, authentication, and a plugin system while keeping Astro’s island model."
+              "text": "Nomos is designed from the ground up for AI-assisted development. Its filepath-based self-documenting APIs, config-first patterns, and sandboxed plugin architecture make it naturally understandable by LLMs while keeping developers in full control."
             }
           },
           {
             "@type": "Question",
-            "name": "What makes Nomos a strong Node.js framework?",
+            "name": "How does Nomos ensure safety when using LLM-generated code?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Nomos is built on Fastify for performance, organizes API routes and middleware, and ships OpenAPI docs so it is production-ready for Node.js backends."
+              "text": "Nomos validates all plugin code in an isolated sandbox before enabling. Security checks, dependency resolution, and integrity verification happen automatically, so you can confidently use AI-generated extensions."
             }
           },
           {
             "@type": "Question",
-            "name": "Does Nomos support SEO and performance best practices?",
+            "name": "What comes included with Nomos out of the box?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Astro’s SSR and islands approach help deliver fast pages, and Nomos keeps metadata, OpenAPI docs, and structured data aligned for discoverability."
+              "text": "Nomos includes a full authorization system, admin UI with SSR hydration, self-documenting APIs with OpenAPI specs, a WordPress-inspired plugin architecture, complete observability and diagnostics, and Prisma database integration."
             }
           }
         ]
@@ -98,1086 +89,1916 @@
 
     <style>
       :root {
-        --bg: #0b1220;
-        --bg2: #0e1630;
-        --card: rgba(255, 255, 255, 0.06);
-        --card2: rgba(255, 255, 255, 0.09);
-        --text: rgba(255, 255, 255, 0.92);
-        --muted: rgba(255, 255, 255, 0.68);
-        --faint: rgba(255, 255, 255, 0.5);
-        --border: rgba(255, 255, 255, 0.12);
-        --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-        --shadow2: 0 10px 35px rgba(0, 0, 0, 0.35);
+        --bg: #0a0a0f;
+        --bg2: #0f0f16;
+        --bg3: #16161f;
+        --surface: rgba(255, 255, 255, 0.03);
+        --surface2: rgba(255, 255, 255, 0.06);
+        --surface3: rgba(255, 255, 255, 0.09);
+        --text: #f5f5f7;
+        --text2: rgba(255, 255, 255, 0.75);
+        --text3: rgba(255, 255, 255, 0.55);
+        --border: rgba(255, 255, 255, 0.1);
+        --border2: rgba(255, 255, 255, 0.15);
 
-        --accent: #79b8ff;
+        --primary: #3b82f6;
+        --primary2: #60a5fa;
+        --accent: #8b5cf6;
         --accent2: #a78bfa;
-        --good: #34d399;
+        --success: #10b981;
+        --success2: #34d399;
 
-        --radius: 18px;
-        --radius2: 26px;
+        --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        --shadow2: 0 10px 40px rgba(0, 0, 0, 0.3);
 
-        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          "Liberation Mono", "Courier New", monospace;
-        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        --radius: 12px;
+        --radius2: 16px;
+        --radius3: 24px;
+
+        --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+          "Liberation Mono", monospace;
+        --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
       }
 
       [data-theme="light"] {
         --bg: #ffffff;
-        --bg2: #f5f7ff;
-        --card: rgba(10, 20, 40, 0.06);
-        --card2: rgba(10, 20, 40, 0.09);
-        --text: rgba(10, 20, 40, 0.92);
-        --muted: rgba(10, 20, 40, 0.68);
-        --faint: rgba(10, 20, 40, 0.5);
-        --border: rgba(10, 20, 40, 0.12);
-        --shadow: 0 20px 60px rgba(10, 20, 40, 0.12);
-        --shadow2: 0 10px 35px rgba(10, 20, 40, 0.12);
-
-        --accent: #2563eb;
-        --accent2: #7c3aed;
+        --bg2: #f9fafb;
+        --bg3: #f3f4f6;
+        --surface: rgba(0, 0, 0, 0.02);
+        --surface2: rgba(0, 0, 0, 0.04);
+        --surface3: rgba(0, 0, 0, 0.06);
+        --text: #111827;
+        --text2: rgba(17, 24, 39, 0.75);
+        --text3: rgba(17, 24, 39, 0.55);
+        --border: rgba(0, 0, 0, 0.08);
+        --border2: rgba(0, 0, 0, 0.12);
+        --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        --shadow2: 0 10px 40px rgba(0, 0, 0, 0.08);
       }
 
-      * { box-sizing: border-box; }
-      html, body { height: 100%; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
 
       body {
         margin: 0;
         font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.6;
         color: var(--text);
-        background:
-          radial-gradient(1200px 700px at 20% 10%, rgba(121, 184, 255, 0.22), transparent 60%),
-          radial-gradient(900px 600px at 85% 20%, rgba(167, 139, 250, 0.22), transparent 55%),
-          radial-gradient(900px 900px at 50% 110%, rgba(52, 211, 153, 0.12), transparent 55%),
-          linear-gradient(180deg, var(--bg), var(--bg2));
-        overflow-x: hidden;
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
-      a { color: inherit; text-decoration: none; }
-      a:hover { text-decoration: underline; text-underline-offset: 3px; }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
 
       .wrap {
-        width: min(1120px, calc(100% - 48px));
+        max-width: 1200px;
         margin: 0 auto;
+        padding: 0 24px;
       }
 
+      .wrap-narrow {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
       header {
         position: sticky;
         top: 0;
-        z-index: 20;
-        backdrop-filter: blur(10px);
-        background: linear-gradient(180deg, rgba(10, 14, 28, 0.72), rgba(10, 14, 28, 0.38));
+        z-index: 100;
+        background: rgba(10, 10, 15, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--border);
       }
+
       [data-theme="light"] header {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
+        background: rgba(255, 255, 255, 0.85);
       }
 
-      .nav {
+      .header-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 14px 0;
-        gap: 18px;
+        height: 64px;
+        gap: 24px;
       }
 
-      .brand {
-        display: inline-flex;
+      .logo {
+        display: flex;
         align-items: center;
         gap: 12px;
         font-weight: 700;
-        letter-spacing: 0.2px;
-      }
-      .brand img { display: block; }
-      .logo { width: 32px; height: 32px; }
-      .logoText { height: 32px; width: auto; }
-
-      .brandText {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .brand small {
-        display: block;
-        font-weight: 500;
-        color: var(--muted);
-        letter-spacing: 0;
+        font-size: 20px;
+        letter-spacing: -0.02em;
       }
 
-      .navlinks {
+      .logo img {
+        width: 32px;
+        height: 32px;
+      }
+
+      .logo:hover {
+        text-decoration: none;
+      }
+
+      .nav-links {
         display: none;
-        gap: 16px;
         align-items: center;
-        color: var(--muted);
-        font-weight: 550;
-        font-size: 14px;
+        gap: 32px;
       }
-      .navlinks a:hover { color: var(--text); text-decoration: none; }
 
-      .actions {
+      .nav-links a {
+        color: var(--text2);
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.15s;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .header-actions {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
       }
 
       .btn {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--text);
-        font-weight: 650;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 18px;
         font-size: 14px;
-        line-height: 1;
+        font-weight: 600;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
         cursor: pointer;
-        user-select: none;
+        transition: all 0.15s;
+        white-space: nowrap;
       }
-      .btn:hover { background: rgba(255, 255, 255, 0.07); text-decoration: none; }
 
-      .btn.primary {
-        border-color: transparent;
-        background: linear-gradient(135deg, var(--accent), var(--accent2));
-        color: white;
-        box-shadow: 0 16px 45px rgba(121, 184, 255, 0.16);
+      .btn:hover {
+        background: var(--surface2);
+        border-color: var(--border2);
+        text-decoration: none;
       }
-      .btn.primary:hover { filter: brightness(1.05); }
 
-      .btn.icon {
+      .btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary2);
+        border-color: var(--primary2);
+      }
+
+      .btn-icon {
         padding: 10px;
         width: 40px;
-        justify-content: center;
+        height: 40px;
       }
 
-      .hero { padding: 64px 0 30px; }
-
-      .heroGrid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 26px;
-        align-items: start;
+      .btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
       }
 
-      .kicker {
+      .mobile-menu-btn {
+        display: flex;
+        padding: 8px;
+        background: transparent;
+        border: none;
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .mobile-menu-btn svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 80px 0 60px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse 80% 50% at 50% 0%,
+            rgba(59, 130, 246, 0.15),
+            transparent
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 80% 20%,
+            rgba(139, 92, 246, 0.1),
+            transparent
+          );
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero-badge {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        padding: 8px 12px;
-        border-radius: 999px;
+        gap: 8px;
+        padding: 6px 14px;
+        background: var(--surface2);
         border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--muted);
-        font-weight: 600;
-        font-size: 13px;
-        width: fit-content;
-      }
-      .dot {
-        width: 8px;
-        height: 8px;
         border-radius: 999px;
-        background: var(--good);
-        box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15);
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text2);
+        margin-bottom: 24px;
+      }
+
+      .hero-badge-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--success);
+        border-radius: 50%;
+        box-shadow: 0 0 8px var(--success);
       }
 
       h1 {
-        margin: 14px 0 10px;
-        font-size: clamp(36px, 5vw, 56px);
-        line-height: 1.02;
-        letter-spacing: -0.02em;
+        margin: 0 0 20px;
+        font-size: clamp(36px, 6vw, 60px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
       }
 
-      .grad {
-        background: linear-gradient(135deg, var(--accent), var(--accent2));
+      .hero-gradient {
+        background: linear-gradient(135deg, var(--primary2), var(--accent2));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
 
-      .lead {
-        margin: 0;
-        color: var(--muted);
+      .hero-subtitle {
+        margin: 0 0 32px;
         font-size: 18px;
-        line-height: 1.55;
-        max-width: 62ch;
-      }
-
-      .heroCtas {
-        margin-top: 18px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-      }
-
-      .trustRow {
-        margin-top: 18px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        align-items: center;
-        color: var(--faint);
-        font-size: 13px;
-      }
-
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 10px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .codeCard {
-        border-radius: var(--radius2);
-        border: 1px solid var(--border);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-        box-shadow: var(--shadow2);
-        overflow: hidden;
-      }
-
-      .codeTop {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 14px;
-        border-bottom: 1px solid var(--border);
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .dots { display: inline-flex; gap: 7px; align-items: center; }
-      .dots span { width: 10px; height: 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.16); }
-      [data-theme="light"] .dots span { background: rgba(10, 20, 40, 0.18); }
-
-      pre {
-        margin: 0;
-        padding: 16px 16px 18px;
-        overflow: auto;
-        font-family: var(--mono);
-        font-size: 13px;
-        line-height: 1.55;
-        color: rgba(255, 255, 255, 0.88);
-      }
-      [data-theme="light"] pre { color: rgba(10, 20, 40, 0.88); }
-
-      .hl-k { color: #93c5fd; }
-      .hl-s { color: #a7f3d0; }
-      .hl-c { color: rgba(255, 255, 255, 0.45); }
-      [data-theme="light"] .hl-c { color: rgba(10, 20, 40, 0.45); }
-      .hl-f { color: #fbcfe8; }
-      .hl-t { color: #fde68a; }
-
-      section { padding: 54px 0; }
-
-      .sectionHead {
-        display: grid;
-        gap: 10px;
-        margin-bottom: 18px;
-      }
-
-      h2 { margin: 0; font-size: 28px; letter-spacing: -0.01em; }
-
-      .sub {
-        margin: 0;
-        color: var(--muted);
-        max-width: 70ch;
+        color: var(--text2);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
         line-height: 1.6;
       }
 
-      .grid3 {
+      .hero-ctas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 48px;
+      }
+
+      .terminal {
+        max-width: 520px;
+        margin: 0 auto;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius2);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        text-align: left;
+      }
+
+      .terminal-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .terminal-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .terminal-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--surface3);
+      }
+
+      .terminal-title {
+        flex: 1;
+        text-align: center;
+        font-size: 12px;
+        color: var(--text3);
+        font-family: var(--mono);
+      }
+
+      .terminal-body {
+        padding: 16px;
+        font-family: var(--mono);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .terminal-line {
+        display: block;
+      }
+
+      .terminal-prompt {
+        color: var(--success);
+      }
+
+      .terminal-cmd {
+        color: var(--text);
+      }
+
+      .terminal-output {
+        color: var(--text3);
+        padding-left: 16px;
+      }
+
+      .terminal-highlight {
+        color: var(--primary2);
+      }
+
+      /* Sections */
+      section {
+        padding: 80px 0;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 48px;
+      }
+
+      .section-label {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary2);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        margin: 0 0 16px;
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .section-subtitle {
+        margin: 0;
+        font-size: 17px;
+        color: var(--text2);
+        line-height: 1.6;
+      }
+
+      /* Why Nomos - 3 columns */
+      .why-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 24px;
       }
 
-      .card {
-        border-radius: var(--radius);
+      .why-card {
+        padding: 32px;
+        background: var(--surface);
         border: 1px solid var(--border);
-        background: var(--card);
-        box-shadow: var(--shadow2);
-        padding: 16px;
-        position: relative;
-        overflow: hidden;
+        border-radius: var(--radius2);
+        text-align: center;
+        transition: all 0.2s;
       }
 
-      .card::after {
-        content: "";
-        position: absolute;
-        inset: -1px;
-        background: radial-gradient(600px 200px at 10% 0%, rgba(121, 184, 255, 0.11), transparent 60%);
-        pointer-events: none;
+      .why-card:hover {
+        background: var(--surface2);
+        border-color: var(--border2);
       }
 
-      .card h3 { margin: 0 0 8px; font-size: 16px; letter-spacing: -0.01em; }
-      .card p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14px; }
+      .why-icon {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
 
-      .iconBox {
-        width: 40px;
-        height: 40px;
-        border-radius: 14px;
+      .why-card h3 {
+        margin: 0 0 12px;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .why-card p {
+        margin: 0;
+        color: var(--text2);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* Features Grid */
+      .features-section {
+        background: var(--bg2);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .features-grid {
         display: grid;
-        place-items: center;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .feature-card {
+        padding: 28px;
+        background: var(--bg);
         border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius2);
+        transition: all 0.2s;
+      }
+
+      .feature-card:hover {
+        border-color: var(--border2);
+        transform: translateY(-2px);
+      }
+
+      .feature-icon {
+        font-size: 28px;
+        margin-bottom: 16px;
+      }
+
+      .feature-card h3 {
+        margin: 0 0 10px;
+        font-size: 17px;
+        font-weight: 600;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--text2);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* AI Development Section */
+      .ai-section {
+        position: relative;
+      }
+
+      .ai-diagram {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 48px;
+        padding: 32px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius2);
+      }
+
+      .ai-diagram-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .ai-diagram-arrow {
+        color: var(--text3);
+        font-size: 20px;
+      }
+
+      .principles-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .principle-card {
+        padding: 28px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius2);
+      }
+
+      .principle-card h3 {
+        margin: 0 0 12px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .principle-card p {
+        margin: 0;
+        color: var(--text2);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* Showcases Section */
+      .showcases-section {
+        background: var(--bg2);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .showcases-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .showcase-card {
+        padding: 28px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius2);
+        transition: all 0.2s;
+      }
+
+      .showcase-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      .showcase-icon {
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+
+      .showcase-card h3 {
+        margin: 0 0 4px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .showcase-type {
+        display: block;
+        font-size: 13px;
+        color: var(--primary2);
         margin-bottom: 10px;
       }
-      .iconBox svg { width: 20px; height: 20px; }
 
-      .split {
+      .showcase-card p {
+        margin: 0 0 20px;
+        color: var(--text2);
+        font-size: 14px;
+        font-style: italic;
+      }
+
+      .showcase-links {
+        display: flex;
+        gap: 12px;
+      }
+
+      .showcase-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text2);
+        transition: color 0.15s;
+      }
+
+      .showcase-link:hover {
+        color: var(--primary2);
+        text-decoration: none;
+      }
+
+      .showcase-note {
+        margin-top: 40px;
+        padding: 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius2);
+        text-align: center;
+        color: var(--text2);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* Get Started Section */
+      .get-started-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 32px;
         align-items: start;
       }
 
-      .list { display: grid; gap: 10px; margin-top: 10px; }
-
-      .li {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        padding: 12px;
-        border-radius: 14px;
+      .get-started-terminal {
+        background: var(--bg2);
         border: 1px solid var(--border);
-        background: var(--card);
-      }
-
-      .li strong { display: block; margin-bottom: 2px; }
-      .li span { color: var(--muted); font-size: 14px; line-height: 1.5; }
-
-      .check {
-        width: 22px;
-        height: 22px;
-        border-radius: 999px;
-        background: rgba(52, 211, 153, 0.18);
-        border: 1px solid rgba(52, 211, 153, 0.35);
-        display: grid;
-        place-items: center;
-        flex: 0 0 auto;
-        margin-top: 1px;
-      }
-      .check svg { width: 14px; height: 14px; }
-
-      .ctaBand {
         border-radius: var(--radius2);
-        border: 1px solid var(--border);
-        background: linear-gradient(135deg, rgba(121, 184, 255, 0.16), rgba(167, 139, 250, 0.16));
-        box-shadow: var(--shadow);
-        padding: 18px;
-        display: grid;
-        gap: 12px;
-        align-items: center;
+        overflow: hidden;
       }
 
-      .ctaBand h3 { margin: 0; font-size: 18px; }
-      .ctaBand p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 14px; }
-
-      .ctaBand .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-      }
-
-      footer {
-        padding: 26px 0 44px;
-        color: var(--faint);
-        border-top: 1px solid var(--border);
-      }
-
-      .footGrid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .footLinks {
+      .quick-links {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
 
-      .footLinks a {
-        color: var(--muted);
-        font-weight: 600;
-        font-size: 14px;
+      .quick-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        transition: all 0.15s;
       }
 
-      .footLinks a:hover {
+      .quick-link:hover {
+        background: var(--surface2);
+        border-color: var(--border2);
+        text-decoration: none;
+      }
+
+      .quick-link-icon {
+        font-size: 20px;
+      }
+
+      .quick-link-text {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      /* Docs Section */
+      .docs-section {
+        background: var(--bg2);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .docs-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .docs-sidebar {
+        display: none;
+      }
+
+      .docs-nav-section {
+        margin-bottom: 24px;
+      }
+
+      .docs-nav-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text3);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+      }
+
+      .docs-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .docs-nav-link {
+        font-size: 14px;
+        color: var(--text2);
+        padding: 6px 0;
+        transition: color 0.15s;
+      }
+
+      .docs-nav-link:hover {
         color: var(--text);
         text-decoration: none;
       }
 
-      @media (min-width: 860px) {
-        .navlinks { display: flex; }
+      .docs-content {
+        min-width: 0;
+      }
 
-        .heroGrid {
-          grid-template-columns: 1.12fr 0.88fr;
-          align-items: center;
-          gap: 24px;
+      .docs-content-inner {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius2);
+        padding: 32px;
+      }
+
+      .docs-content h3 {
+        margin: 0 0 16px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .docs-content p {
+        margin: 0 0 16px;
+        color: var(--text2);
+        line-height: 1.7;
+      }
+
+      .docs-content p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 0 40px;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-brand {
+        max-width: 300px;
+      }
+
+      .footer-brand .logo {
+        margin-bottom: 16px;
+      }
+
+      .footer-tagline {
+        color: var(--text3);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .footer-links-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .footer-column h4 {
+        margin: 0 0 16px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text3);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        font-size: 14px;
+        color: var(--text2);
+        transition: color 0.15s;
+      }
+
+      .footer-column a:hover {
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        font-size: 13px;
+        color: var(--text3);
+      }
+
+      .footer-bottom a {
+        color: var(--text2);
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: var(--bg);
+        padding: 80px 24px 24px;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
+
+      .mobile-menu a {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--text);
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* Responsive */
+      @media (min-width: 640px) {
+        .why-grid {
+          grid-template-columns: repeat(3, 1fr);
         }
 
-        .grid3 { grid-template-columns: repeat(3, 1fr); }
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
 
-        .split {
+        .showcases-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .principles-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .ai-diagram {
+          flex-direction: row;
+        }
+
+        .ai-diagram-arrow {
+          transform: rotate(0deg);
+        }
+
+        .footer-links-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 768px) {
+        section {
+          padding: 100px 0;
+        }
+
+        .hero {
+          padding: 120px 0 80px;
+        }
+
+        .get-started-grid {
           grid-template-columns: 1fr 1fr;
-          gap: 18px;
         }
 
-        .ctaBand {
-          grid-template-columns: 1.25fr 0.75fr;
-          padding: 20px;
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
         }
 
-        .footGrid {
-          grid-template-columns: 1.2fr 0.8fr;
-          align-items: start;
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
         }
 
-        .footLinks { grid-template-columns: repeat(3, 1fr); }
+        .mobile-menu-btn {
+          display: none;
+        }
       }
 
-      .muted { color: var(--muted); }
+      @media (min-width: 1024px) {
+        .nav-links {
+          display: flex;
+        }
 
-      .kbd {
-        font-family: var(--mono);
-        font-size: 12px;
-        padding: 2px 6px;
-        border: 1px solid var(--border);
-        border-bottom-width: 2px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.03);
+        .features-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .showcases-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .docs-layout {
+          grid-template-columns: 220px 1fr;
+        }
+
+        .docs-sidebar {
+          display: block;
+          position: sticky;
+          top: 88px;
+        }
+
+        .mobile-menu-btn {
+          display: none;
+        }
       }
 
-      .hr { height: 1px; background: var(--border); margin: 0; }
-
-      .hidden { display: none; }
-
-      /* Docs layout + “GitHub-like” frame styling */
-      #docs-container {
-        padding: 22px 0 54px;
-      }
-      #doc-content {
-        width: min(980px, calc(100% - 48px));
-        margin: 18px auto 0;
-        padding: 22px 22px;
-        border-radius: 18px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.045);
-        box-shadow: var(--shadow2);
-      }
-      [data-theme="light"] #doc-content {
-        background: rgba(10, 20, 40, 0.04);
+      @media (min-width: 1280px) {
+        .showcases-grid {
+          grid-template-columns: repeat(5, 1fr);
+        }
       }
 
-      /* Keep markdown “content” styling scoped */
-      .markdown-body {
-        background: transparent;
-        max-width: 980px;
-        margin: 0 auto;
-        color-scheme: dark;
+      /* Utility Classes */
+      .hidden {
+        display: none !important;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Focus styles for accessibility */
+      :focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary);
+        color: white;
+        padding: 8px 16px;
+        z-index: 1000;
+        transition: top 0.2s;
+      }
+
+      .skip-link:focus {
+        top: 0;
       }
     </style>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"></noscript>
   </head>
 
   <body>
-    <header id="top">
-      <div class="wrap nav">
-        <a class="brand" href="#top" aria-label="Nomos home">
-          <span class="brandText">
-            <img class="logoText" src="nomos-logo+text.png" alt="Nomos" />
-            <small>Full-stack framework for Astro</small>
-          </span>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header>
+      <div class="wrap header-inner">
+        <a href="#" class="logo" aria-label="Nomos home">
+          <img src="nomos-logo.png" alt="" aria-hidden="true" />
+          <span>Nomos</span>
         </a>
 
-        <nav id="primary-nav" class="navlinks" aria-label="Primary">
-          <a href="#docs" id="docs-link">Docs</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#why">Why Nomos</a>
           <a href="#features">Features</a>
-          <a href="#developer-experience">DX</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#getting-started">Getting started</a>
-          <a href="#faq">FAQ</a>
+          <a href="#showcases">Showcases</a>
+          <a href="#docs">Docs</a>
         </nav>
 
-        <nav id="docs-nav" class="navlinks hidden" aria-label="Docs">
-          <a href="#" id="docs-home">Home</a>
-          <a href="#intro">Intro</a>
-          <a href="#config">Config</a>
-          <a href="#routing">Routing</a>
-          <a href="#plugins">Plugins</a>
-        </nav>
-
-        <div class="actions">
-          <button class="btn icon" id="themeBtn" aria-label="Toggle theme">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <div class="header-actions">
+          <button
+            class="btn btn-icon"
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="5" />
               <path
-                d="M12 3a1 1 0 0 1 1 1v1.25a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14.75a1 1 0 0 1 1 1V20a1 1 0 1 1-2 0v-1.25a1 1 0 0 1 1-1ZM4.5 11a1 1 0 0 1 1-1h1.25a1 1 0 1 1 0 2H5.5a1 1 0 0 1-1-1Zm12.75 0a1 1 0 0 1 1-1H19.5a1 1 0 1 1 0 2h-1.25a1 1 0 0 1-1-1ZM6.1 6.1a1 1 0 0 1 1.42 0l.88.88a1 1 0 1 1-1.42 1.42l-.88-.88a1 1 0 0 1 0-1.42Zm9.5 9.5a1 1 0 0 1 1.42 0l.88.88a1 1 0 1 1-1.42 1.42l-.88-.88a1 1 0 0 1 0-1.42ZM17 6.1a1 1 0 0 1 0 1.42l-.88.88a1 1 0 1 1-1.42-1.42l.88-.88a1 1 0 0 1 1.42 0ZM8.3 15.6a1 1 0 0 1 0 1.42l-.88.88a1 1 0 1 1-1.42-1.42l.88-.88a1 1 0 0 1 1.42 0ZM12 7.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
               />
             </svg>
           </button>
-
-          <a class="btn" href="https://github.com/KenEucker/nomos/" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn primary" href="#getting-started">Get started</a>
+          <a
+            class="btn"
+            href="https://github.com/KenEucker/nomos/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18a4.65 4.65 0 0 1 1.24 3.22c0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 0z"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a class="btn btn-primary" href="#get-started">Get Started</a>
+          <button
+            class="mobile-menu-btn"
+            id="mobile-menu-toggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          </button>
         </div>
       </div>
     </header>
 
-    <main id="docs-container" class="hidden">
-      <article id="doc-content" class="markdown-body">
-        <p>Loading…</p>
-      </article>
-    </main>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <a href="#why">Why Nomos</a>
+      <a href="#features">Features</a>
+      <a href="#showcases">Showcases</a>
+      <a href="#docs">Docs</a>
+      <a href="#get-started">Get Started</a>
+      <a
+        href="https://github.com/KenEucker/nomos/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub</a
+      >
+    </nav>
 
-    <main id="main-container">
-      <div class="wrap hero">
-        <div class="heroGrid">
-          <div>
-            <div class="kicker">
-              <span class="dot" aria-hidden="true"></span>
-              Open-source full-stack tooling for Astro projects
+    <main id="main">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="wrap hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            AI-native backend framework
+          </div>
+
+          <h1>
+            Build production backends with AI assistance —
+            <span class="hero-gradient">safely</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            The first framework designed for AI-native development.
+            Self-documenting APIs, sandboxed plugins, and full observability
+            from day one.
+          </p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#get-started">Get Started</a>
+            <a
+              class="btn"
+              href="https://github.com/KenEucker/nomos/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18a4.65 4.65 0 0 1 1.24 3.22c0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 0z"
+                />
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+
+          <div class="terminal" aria-label="Terminal example">
+            <div class="terminal-header">
+              <div class="terminal-dots" aria-hidden="true">
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
+              </div>
+              <span class="terminal-title">Terminal</span>
+            </div>
+            <div class="terminal-body">
+              <span class="terminal-line"
+                ><span class="terminal-prompt">$</span>
+                <span class="terminal-cmd"
+                  >npm create nomos@latest my-app</span
+                ></span
+              >
+              <span class="terminal-line"
+                ><span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">cd my-app</span></span
+              >
+              <span class="terminal-line"
+                ><span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">npm run dev</span></span
+              >
+              <span class="terminal-line terminal-output">&nbsp;</span>
+              <span class="terminal-line terminal-output"
+                ><span class="terminal-highlight">→</span> Admin UI:
+                http://localhost:3000/admin</span
+              >
+              <span class="terminal-line terminal-output"
+                ><span class="terminal-highlight">→</span> API Docs:
+                http://localhost:3000/api/docs</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Nomos Section -->
+      <section id="why">
+        <div class="wrap">
+          <div class="section-header">
+            <span class="section-label">Why Nomos</span>
+            <h2>Built for clarity, designed for AI</h2>
+            <p class="section-subtitle">
+              Nomos is the first backend framework designed from the ground up
+              for AI-assisted development, combining predictable patterns with
+              automatic safety.
+            </p>
+          </div>
+
+          <div class="why-grid" role="list">
+            <div class="why-card" role="listitem">
+              <div class="why-icon" aria-hidden="true">📁</div>
+              <h3>Filepath-Based APIs</h3>
+              <p>
+                Your file structure IS your API. LLMs understand this pattern
+                natively. No configuration files, no magic, no surprises.
+              </p>
             </div>
 
-            <h1>
-              Build Astro apps with
-              <span class="grad">batteries included</span>.
-            </h1>
+            <div class="why-card" role="listitem">
+              <div class="why-icon" aria-hidden="true">🔌</div>
+              <h3>Sandboxed Plugins</h3>
+              <p>
+                LLM-generated code runs in isolation first. Automatic validation
+                before production. Enable with confidence, disable instantly.
+              </p>
+            </div>
 
-            <p class="lead">
-              <strong>Nomos</strong> is an <strong>open-source</strong> full-stack Astro and Node.js framework:
-              opinionated structure, a Fastify-powered API layer, a pluggable admin UI, auth,
-              and an extension system designed to stay simple and LLM-friendly.
+            <div class="why-card" role="listitem">
+              <div class="why-icon" aria-hidden="true">🔍</div>
+              <h3>Full Observability</h3>
+              <p>
+                Every decision traced. Every request logged. Every plugin
+                execution measured. Debug with data, not guesswork.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features-section">
+        <div class="wrap">
+          <div class="section-header">
+            <span class="section-label">Features</span>
+            <h2>Batteries included, not opinions imposed</h2>
+            <p class="section-subtitle">
+              Everything you need to build production backends, with the
+              flexibility to customize anything.
             </p>
+          </div>
 
-            <div class="heroCtas">
-              <a class="btn primary" href="#getting-started">
-                Create a Nomos app
-                <span class="kbd">npm</span>
+          <div class="features-grid" role="list">
+            <article class="feature-card" role="listitem">
+              <div class="feature-icon" aria-hidden="true">🎯</div>
+              <h3>Authorization System</h3>
+              <p>
+                Policy-based access control with full audit trails. Every
+                decision includes evidence and rationale. Built for compliance
+                and debugging.
+              </p>
+            </article>
+
+            <article class="feature-card" role="listitem">
+              <div class="feature-icon" aria-hidden="true">🔧</div>
+              <h3>Admin UI</h3>
+              <p>
+                Pre-built interface with SSR and client-side hydration.
+                Auto-generated CRUD from your APIs. Customizable components,
+                accessible by default.
+              </p>
+            </article>
+
+            <article class="feature-card" role="listitem">
+              <div class="feature-icon" aria-hidden="true">🚀</div>
+              <h3>Self-Documenting APIs</h3>
+              <p>
+                OpenAPI specs generated from your file structure. Built-in API
+                explorer and testing UI. Types stay in sync automatically.
+              </p>
+            </article>
+
+            <article class="feature-card" role="listitem">
+              <div class="feature-icon" aria-hidden="true">📦</div>
+              <h3>Plugin Architecture</h3>
+              <p>
+                WordPress-inspired hooks without the legacy. Sandbox validation
+                before enabling. Runtime integrity checks. Community marketplace
+                ready.
+              </p>
+            </article>
+
+            <article class="feature-card" role="listitem">
+              <div class="feature-icon" aria-hidden="true">📊</div>
+              <h3>Observability & Diagnostics</h3>
+              <p>
+                Request tracing, performance metrics, decision artifacts.
+                Everything logged and queryable from day one.
+              </p>
+            </article>
+
+            <article class="feature-card" role="listitem">
+              <div class="feature-icon" aria-hidden="true">🗄️</div>
+              <h3>Database & ORM</h3>
+              <p>
+                Prisma integrated by default. Automatic migrations. Schema-first
+                or code-first. Multi-database support.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Development Section -->
+      <section id="ai-development" class="ai-section">
+        <div class="wrap">
+          <div class="section-header">
+            <span class="section-label">AI-Native Development</span>
+            <h2>LLMs read your structure. You keep control.</h2>
+            <p class="section-subtitle">
+              Nomos is designed so that AI can understand and extend your code
+              safely, while you maintain full visibility and control.
+            </p>
+          </div>
+
+          <div class="ai-diagram" role="img" aria-label="Nomos workflow diagram">
+            <div class="ai-diagram-item">📁 Filepath Structure</div>
+            <div class="ai-diagram-arrow" aria-hidden="true">→</div>
+            <div class="ai-diagram-item">📖 Self-Documenting</div>
+            <div class="ai-diagram-arrow" aria-hidden="true">→</div>
+            <div class="ai-diagram-item">🤖 LLM Understands</div>
+            <div class="ai-diagram-arrow" aria-hidden="true">→</div>
+            <div class="ai-diagram-item">✅ Safe Generation</div>
+          </div>
+
+          <div class="principles-grid" role="list">
+            <div class="principle-card" role="listitem">
+              <h3>Predictable Structure</h3>
+              <p>
+                File organization defines API behavior. No hidden configuration.
+                LLMs trained on GitHub understand this pattern intuitively.
+              </p>
+            </div>
+
+            <div class="principle-card" role="listitem">
+              <h3>Automatic Validation</h3>
+              <p>
+                Plugins run in sandbox first. Security checks, dependency
+                resolution, and integrity verification happen automatically
+                before anything touches production.
+              </p>
+            </div>
+
+            <div class="principle-card" role="listitem">
+              <h3>Always Auditable</h3>
+              <p>
+                Every authorization decision, every plugin execution, every API
+                call is traced with full context. You know exactly what happened
+                and why.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Showcases Section -->
+      <section id="showcases" class="showcases-section">
+        <div class="wrap">
+          <div class="section-header">
+            <span class="section-label">Built With Nomos</span>
+            <h2>Complete production applications. One LLM prompt each.</h2>
+            <p class="section-subtitle">
+              These aren't demos. They're real platforms, each generated from a
+              single prompt and running in production. Click to explore.
+            </p>
+          </div>
+
+          <div class="showcases-grid" role="list">
+            <article class="showcase-card" role="listitem">
+              <div class="showcase-icon" aria-hidden="true">🔌</div>
+              <h3>nomos-foo</h3>
+              <span class="showcase-type">Plugin Registry & Marketplace</span>
+              <p>"The transparent, governed plugin ecosystem for Nomos"</p>
+              <div class="showcase-links">
+                <a
+                  href="https://foo.nomosjs.dev"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Visit Site →</a
+                >
+                <a
+                  href="https://github.com/KenEucker/nomos-foo"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View Source →</a
+                >
+              </div>
+            </article>
+
+            <article class="showcase-card" role="listitem">
+              <div class="showcase-icon" aria-hidden="true">📝</div>
+              <h3>nomos-simas</h3>
+              <span class="showcase-type">Content Management System</span>
+              <p>
+                "WordPress-like CMS with modern block editor and theme system"
+              </p>
+              <div class="showcase-links">
+                <a
+                  href="https://simas.nomosjs.dev"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Visit Site →</a
+                >
+                <a
+                  href="https://github.com/KenEucker/nomos-simas"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View Source →</a
+                >
+              </div>
+            </article>
+
+            <article class="showcase-card" role="listitem">
+              <div class="showcase-icon" aria-hidden="true">📋</div>
+              <h3>nomos-praxis</h3>
+              <span class="showcase-type">Workflow & Job Management</span>
+              <p>"Human-centered work tracking that makes sense"</p>
+              <div class="showcase-links">
+                <a
+                  href="https://praxis.nomosjs.dev"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Visit Site →</a
+                >
+                <a
+                  href="https://github.com/KenEucker/nomos-praxis"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View Source →</a
+                >
+              </div>
+            </article>
+
+            <article class="showcase-card" role="listitem">
+              <div class="showcase-icon" aria-hidden="true">🏪</div>
+              <h3>nomos-agora</h3>
+              <span class="showcase-type">Community Marketplace</span>
+              <p>"Local exchange with clear rules, no algorithms"</p>
+              <div class="showcase-links">
+                <a
+                  href="https://agora.nomosjs.dev"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Visit Site →</a
+                >
+                <a
+                  href="https://github.com/KenEucker/nomos-agora"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View Source →</a
+                >
+              </div>
+            </article>
+
+            <article class="showcase-card" role="listitem">
+              <div class="showcase-icon" aria-hidden="true">🌐</div>
+              <h3>nomos-demos</h3>
+              <span class="showcase-type">Federated Social Platform</span>
+              <p>"Governed public discourse with ActivityPub federation"</p>
+              <div class="showcase-links">
+                <a
+                  href="https://demos.nomosjs.dev"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Visit Site →</a
+                >
+                <a
+                  href="https://github.com/KenEucker/nomos-demos"
+                  class="showcase-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View Source →</a
+                >
+              </div>
+            </article>
+          </div>
+
+          <div class="showcase-note">
+            Each platform was generated from a single detailed prompt, refined
+            through LLM iterations, and validated in Nomos's sandbox before
+            deployment. View the prompts and iterations in each project's
+            repository.
+          </div>
+        </div>
+      </section>
+
+      <!-- Get Started Section -->
+      <section id="get-started">
+        <div class="wrap">
+          <div class="section-header">
+            <span class="section-label">Quick Start</span>
+            <h2>Create your first Nomos app in 60 seconds</h2>
+          </div>
+
+          <div class="get-started-grid">
+            <div class="get-started-terminal">
+              <div class="terminal-header">
+                <div class="terminal-dots" aria-hidden="true">
+                  <span class="terminal-dot"></span>
+                  <span class="terminal-dot"></span>
+                  <span class="terminal-dot"></span>
+                </div>
+                <span class="terminal-title">Terminal</span>
+              </div>
+              <div class="terminal-body">
+                <span class="terminal-line terminal-output"
+                  ># Create a new Nomos app</span
+                >
+                <span class="terminal-line"
+                  ><span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd"
+                    >npm create nomos@latest my-app</span
+                  ></span
+                >
+                <span class="terminal-line terminal-output">&nbsp;</span>
+                <span class="terminal-line terminal-output"
+                  ># Start development</span
+                >
+                <span class="terminal-line"
+                  ><span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">cd my-app</span></span
+                >
+                <span class="terminal-line"
+                  ><span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">npm run dev</span></span
+                >
+                <span class="terminal-line terminal-output">&nbsp;</span>
+                <span class="terminal-line terminal-output"
+                  ># Open admin UI</span
+                >
+                <span class="terminal-line terminal-output"
+                  ><span class="terminal-highlight">→</span>
+                  http://localhost:3000/admin</span
+                >
+                <span class="terminal-line terminal-output">&nbsp;</span>
+                <span class="terminal-line terminal-output"
+                  ># Open API explorer</span
+                >
+                <span class="terminal-line terminal-output"
+                  ><span class="terminal-highlight">→</span>
+                  http://localhost:3000/api/docs</span
+                >
+              </div>
+            </div>
+
+            <div class="quick-links" role="list">
+              <a
+                href="#docs"
+                class="quick-link"
+                role="listitem"
+              >
+                <span class="quick-link-icon" aria-hidden="true">📖</span>
+                <span class="quick-link-text">Read the Documentation</span>
               </a>
-              <a class="btn" href="#features">
-                Explore features
-                <span class="kbd">↓</span>
+              <a
+                href="https://github.com/KenEucker/nomos/blob/production/docs/tutorial.md"
+                class="quick-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="listitem"
+              >
+                <span class="quick-link-icon" aria-hidden="true">🎓</span>
+                <span class="quick-link-text">Follow the Tutorial</span>
+              </a>
+              <a
+                href="https://discord.gg/nomos"
+                class="quick-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="listitem"
+              >
+                <span class="quick-link-icon" aria-hidden="true">💬</span>
+                <span class="quick-link-text">Join Discord Community</span>
+              </a>
+              <a
+                href="https://github.com/KenEucker/nomos/"
+                class="quick-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="listitem"
+              >
+                <span class="quick-link-icon" aria-hidden="true">⭐</span>
+                <span class="quick-link-text">Star on GitHub</span>
               </a>
             </div>
-
-            <div class="trustRow" aria-label="Highlights">
-              <span class="pill"><span aria-hidden="true">⚡</span> Server + Admin in one place</span>
-              <span class="pill"><span aria-hidden="true">🔌</span> Rich plugin ecosystem</span>
-              <span class="pill"><span aria-hidden="true">🧠</span> LLM-friendly conventions</span>
-              <span class="pill"><span aria-hidden="true">📄</span> OpenAPI / Swagger docs</span>
-            </div>
-          </div>
-
-          <div class="codeCard" aria-label="Nomos quickstart code example">
-            <div class="codeTop">
-              <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-              <span class="muted">nomos.config.ts</span>
-            </div>
-
-            <pre><code><span class="hl-c">// File-based structure + plugins + API + admin.</span>
-
-<span class="hl-k">export default</span> {
-  app: { name: <span class="hl-s">"Nomos"</span> },
-
-  plugins: {
-    <span class="hl-f">auth</span>: <span class="hl-t">true</span>,
-    <span class="hl-f">admin</span>: <span class="hl-t">true</span>,
-    <span class="hl-f">openapi</span>: <span class="hl-t">true</span>
-  },
-
-  api: { basePath: <span class="hl-s">"/api"</span> },
-
-  <span class="hl-c">// Build domain features as plugins (enable/disable per-app)</span>
-  modules: [
-    <span class="hl-s">"./plugins/blog"</span>,
-    <span class="hl-s">"./plugins/users"</span>
-  ]
-}</code></pre>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="wrap"><div class="hr"></div></div>
-
-      <section id="features">
+      <!-- Documentation Section -->
+      <section id="docs" class="docs-section">
         <div class="wrap">
-          <div class="sectionHead">
-            <h2>What Nomos gives you</h2>
-            <p class="sub">
-              Nomos bundles the essentials for real apps: a backend API, an admin UI, auth, and clean conventions—
-              while keeping the structure explicit and easy to extend.
+          <div class="section-header">
+            <span class="section-label">Documentation</span>
+            <h2>Everything you need to know</h2>
+            <p class="section-subtitle">
+              Comprehensive guides, tutorials, and API references to help you
+              build with Nomos.
             </p>
           </div>
 
-          <div class="grid3" role="list">
-            <article class="card" role="listitem">
-              <div class="iconBox" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M6 7.5h12M6 12h12M6 16.5h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                </svg>
-              </div>
-              <h3>API layer built-in</h3>
-              <p>
-                A Fastify-powered API with consistent request/response helpers, clear errors,
-                and patterns that scale from “one route” to “whole product.”
-              </p>
-            </article>
-
-            <article class="card" role="listitem">
-              <div class="iconBox" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M8 7h10a2 2 0 0 1 2 2v10H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M4 9h4v10H6a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2Z"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <h3>Admin UI that maps to your API</h3>
-              <p>
-                Resource-driven admin pages (list/create/edit) powered by your API.
-                Keep the admin in the same server so your app stays coherent.
-              </p>
-            </article>
-
-            <article class="card" role="listitem">
-              <div class="iconBox" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                  <path d="M12 8.2v12.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                </svg>
-              </div>
-              <h3>Plugin-first architecture</h3>
-              <p>
-                Drop-in modules with hooks + middleware registries. Enable/disable features per app,
-                and keep domain features isolated and composable.
-              </p>
-            </article>
-
-            <article class="card" role="listitem">
-              <div class="iconBox" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M7.5 11.5 10.2 14.2 16.8 7.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <h3>Auth + permissions ready</h3>
-              <p>
-                Session or token patterns, role checks, and a clean place to centralize access control
-                so plugins don’t reinvent auth.
-              </p>
-            </article>
-
-            <article class="card" role="listitem">
-              <div class="iconBox" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M4 5h16v14H4V5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                  <path d="M8 9h8M8 12h8M8 15h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                </svg>
-              </div>
-              <h3>OpenAPI docs out of the box</h3>
-              <p>
-                Generate and serve OpenAPI/Swagger docs for your API so consumers (and LLMs)
-                can discover routes and schemas automatically.
-              </p>
-            </article>
-
-            <article class="card" role="listitem">
-              <div class="iconBox" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M7 17l10-10M9.5 7H7a2 2 0 0 0-2 2v2.5M14.5 17H17a2 2 0 0 0 2-2v-2.5"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <h3>Conventions that scale</h3>
-              <p>
-                File-based structure, predictable module boundaries, and “best default” scaffolding
-                to keep teams fast and projects coherent across apps and services.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="developer-experience">
-        <div class="wrap">
-          <div class="split">
-            <div>
-              <div class="sectionHead">
-                <h2>Designed for a fast inner loop</h2>
-                <p class="sub">
-                  Nomos focuses on scaffolding, consistent primitives, and a structure that makes feature work feel obvious—
-                  especially when collaborating with LLMs.
-                </p>
-              </div>
-
-              <div class="list">
-                <div class="li">
-                  <div class="check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </div>
-                  <div>
-                    <strong>One project, one deployment</strong>
-                    <span>
-                      Keep your admin, API, and Astro pages together—deploy as a single unit,
-                      with consistent environment handling.
-                    </span>
-                  </div>
-                </div>
-
-                <div class="li">
-                  <div class="check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </div>
-                  <div>
-                    <strong>LLM-friendly by design</strong>
-                    <span>
-                      Simple, explicit patterns (resources, endpoints, hooks) that help LLMs
-                      generate correct code and UI without “magic guessing.”
-                    </span>
-                  </div>
-                </div>
-
-                <div class="li">
-                  <div class="check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </div>
-                  <div>
-                    <strong>Docs that stay accurate</strong>
-                    <span>
-                      OpenAPI docs derived from your code and config help teams and tools stay aligned.
-                    </span>
-                  </div>
+          <div class="docs-layout">
+            <nav class="docs-sidebar" aria-label="Documentation navigation">
+              <div class="docs-nav-section">
+                <div class="docs-nav-title">Getting Started</div>
+                <div class="docs-nav-links">
+                  <a href="#docs-installation" class="docs-nav-link"
+                    >Installation</a
+                  >
+                  <a href="#docs-project-structure" class="docs-nav-link"
+                    >Project Structure</a
+                  >
+                  <a href="#docs-configuration" class="docs-nav-link"
+                    >Configuration</a
+                  >
                 </div>
               </div>
-            </div>
 
-            <div class="codeCard" aria-label="Nomos route + resource example">
-              <div class="codeTop">
-                <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span class="muted">Example: resource + API contract</span>
+              <div class="docs-nav-section">
+                <div class="docs-nav-title">Core Concepts</div>
+                <div class="docs-nav-links">
+                  <a href="#docs-filepath-apis" class="docs-nav-link"
+                    >Filepath-Based APIs</a
+                  >
+                  <a href="#docs-plugin-system" class="docs-nav-link"
+                    >Plugin System</a
+                  >
+                  <a href="#docs-authorization" class="docs-nav-link"
+                    >Authorization</a
+                  >
+                  <a href="#docs-observability" class="docs-nav-link"
+                    >Observability</a
+                  >
+                </div>
               </div>
-              <pre><code><span class="hl-c">// Define once, use everywhere (admin, docs, clients).</span>
 
-<span class="hl-k">export const</span> usersResource = {
-  id: <span class="hl-s">"users"</span>,
-  routeBase: <span class="hl-s">"/admin/users"</span>,
-  endpoints: {
-    list: <span class="hl-s">"/users"</span>,
-    get: <span class="hl-s">"/users/{id}"</span>,
-    create: <span class="hl-s">"/users"</span>,
-    update: <span class="hl-s">"/users/{id}"</span>,
-    delete: <span class="hl-s">"/users/{id}"</span>
-  },
-  list: { searchable: <span class="hl-t">true</span>, pageSize: <span class="hl-t">20</span> }
-}</code></pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="architecture">
-        <div class="wrap">
-          <div class="sectionHead">
-              <h2>How it fits together</h2>
-              <p class="sub">
-                Nomos keeps the mental model simple: Astro for UI, Fastify for API, and a plugin system
-                to add domain features without turning your app into a tangle.
-              </p>
-          </div>
-
-          <div class="grid3">
-            <article class="card">
-              <h3>Astro frontend</h3>
-              <p>SSR + islands, file-based pages, and a clean path for marketing, docs, and product UI.</p>
-            </article>
-
-            <article class="card">
-              <h3>Fastify backend</h3>
-              <p>API routes, middleware, auth checks, and consistent error/response helpers.</p>
-            </article>
-
-            <article class="card">
-              <h3>Nomos plugins</h3>
-              <p>
-                Opt-in modules that register routes, admin resources, hooks, and shared utilities.
-                <strong>Upcoming:</strong> a richer plugin ecosystem that makes discovery, sharing, and reuse easier.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq">
-        <div class="wrap">
-          <div class="sectionHead">
-            <h2>FAQ: Nomos vs. other frameworks</h2>
-            <p class="sub">
-              Answers for teams evaluating Nomos as a Next.js alternative, Nuxt.js alternative,
-              or a full-stack Astro framework built on Node.js.
-            </p>
-          </div>
-
-          <div class="list">
-            <div class="li">
-              <div class="check" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+              <div class="docs-nav-section">
+                <div class="docs-nav-title">Guides</div>
+                <div class="docs-nav-links">
+                  <a href="#docs-first-api" class="docs-nav-link"
+                    >Creating Your First API</a
+                  >
+                  <a href="#docs-building-plugins" class="docs-nav-link"
+                    >Building Plugins</a
+                  >
+                  <a href="#docs-working-with-llms" class="docs-nav-link"
+                    >Working with LLMs</a
+                  >
+                  <a href="#docs-deployment" class="docs-nav-link"
+                    >Deployment</a
+                  >
+                </div>
               </div>
-              <div>
-                <strong>Is Nomos a good alternative to Next.js or Nuxt.js?</strong>
-                <span>
-                  Nomos provides a comparable full-stack experience for Astro projects: API routes,
-                  an admin UI, authentication, and a plugin system while keeping Astro’s island model.
-                </span>
+
+              <div class="docs-nav-section">
+                <div class="docs-nav-title">Showcases</div>
+                <div class="docs-nav-links">
+                  <a href="#showcases" class="docs-nav-link">nomos-foo</a>
+                  <a href="#showcases" class="docs-nav-link">nomos-simas</a>
+                  <a href="#showcases" class="docs-nav-link">nomos-praxis</a>
+                  <a href="#showcases" class="docs-nav-link">nomos-agora</a>
+                  <a href="#showcases" class="docs-nav-link">nomos-demos</a>
+                </div>
               </div>
-            </div>
+            </nav>
 
-            <div class="li">
-              <div class="check" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <div>
-                <strong>What makes Nomos a strong Node.js framework?</strong>
-                <span>
-                  Nomos is built on Fastify for performance, organizes API routes and middleware,
-                  and ships OpenAPI docs, so it is production-ready for Node.js backends.
-                </span>
-              </div>
-            </div>
-
-            <div class="li">
-              <div class="check" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M7 12.5 10.2 15.7 17 8.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <div>
-                <strong>Does Nomos support SEO and performance best practices?</strong>
-                <span>
-                  Yes. Astro’s SSR and islands approach help deliver fast pages, and Nomos keeps
-                  metadata, OpenAPI docs, and structured data aligned for discoverability.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="getting-started">
-        <div class="wrap">
-          <div class="sectionHead">
-            <h2>Getting started</h2>
-            <p class="sub">
-              The commands below are placeholders for your eventual CLI.
-              Replace them with your real package name when you’re ready.
-            </p>
-          </div>
-
-          <div class="split">
-            <div class="codeCard" aria-label="Install commands">
-              <div class="codeTop">
-                <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span class="muted">Quickstart</span>
-              </div>
-              <pre><code><span class="hl-c"># create an app</span>
-npm create nomos@latest
-
-<span class="hl-c"># or</span>
-npx create-nomos
-
-<span class="hl-c"># run it</span>
-npm run dev</code></pre>
-            </div>
-
-            <div class="ctaBand">
-              <div>
-                <h3>Explore the code on GitHub</h3>
+            <div class="docs-content">
+              <div class="docs-content-inner" id="docs-content">
+                <h3>Welcome to Nomos Documentation</h3>
                 <p>
-                  Nomos is <strong>open-source</strong> and actively evolving. The repository is the best source of truth for structure,
-                  current features, and direction.
+                  Nomos is the first backend framework designed for AI-assisted
+                  development. This documentation will help you understand the
+                  core concepts and get started building production applications.
                 </p>
-              </div>
-              <div class="row">
-                <a class="btn primary" href="https://github.com/KenEucker/nomos/" target="_blank" rel="noreferrer">
-                  View repo
-                </a>
-                <a class="btn" href="#features">See features</a>
+                <p>
+                  Select a topic from the sidebar to dive deeper, or visit the
+                  <a
+                    href="https://github.com/KenEucker/nomos/tree/production/docs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >full documentation on GitHub</a
+                  >
+                  for the complete reference.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <div class="wrap" style="padding-bottom: 34px"><div class="hr"></div></div>
     </main>
 
+    <!-- Footer -->
     <footer>
-      <div class="wrap footGrid">
-        <div>
-          <div class="brand" style="margin-bottom: 10px">
-            <img class="logo" src="nomos-logo.png" alt="Nomos logo" />
-            <span>
-              Nomos
-              <small>Full-stack framework for Astro</small>
-            </span>
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo">
+              <img src="nomos-logo.png" alt="" aria-hidden="true" />
+              <span>Nomos</span>
+            </a>
+            <p class="footer-tagline">AI-native backend framework</p>
+            <p class="footer-tagline">© 2025 Nomos. MIT License.</p>
           </div>
-          <div class="muted" style="line-height: 1.6; max-width: 70ch">
-            Nomos is an open-source framework that brings API + admin + auth + plugins into a single Astro project,
-            with conventions that stay understandable and extensible.
+
+          <div class="footer-links-grid">
+            <div class="footer-column">
+              <h4>Links</h4>
+              <ul>
+                <li><a href="#docs">Documentation</a></li>
+                <li>
+                  <a
+                    href="https://github.com/KenEucker/nomos/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://discord.gg/nomos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Discord</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/nomosjs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Twitter/X</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Resources</h4>
+              <ul>
+                <li>
+                  <a
+                    href="https://github.com/KenEucker/nomos/blob/production/CHANGELOG.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Changelog</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/KenEucker/nomos/blob/production/ROADMAP.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Roadmap</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/KenEucker/nomos/blob/production/CONTRIBUTING.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Contributing</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/KenEucker/nomos/blob/production/CODE_OF_CONDUCT.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Code of Conduct</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="footLinks" aria-label="Footer links">
-          <a href="#getting-started">Getting started</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#developer-experience">DX</a>
-          <a href="#features">Features</a>
-          <a href="https://github.com/KenEucker/nomos/" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="#top">Back to top</a>
-          <a href="#faq">FAQ</a>
+        <div class="footer-bottom">
+          <span
+            >Built with Nomos. Designed for the AI-native development era.</span
+          >
+          <a href="#" aria-label="Back to top">Back to top ↑</a>
         </div>
       </div>
     </footer>
 
     <script>
-      const DOCS = {
-        intro: "https://raw.githubusercontent.com/KenEucker/nomos/production/README.md",
-        config: "https://raw.githubusercontent.com/KenEucker/nomos/production/docs/CONFIG.md",
-        plugins: "https://raw.githubusercontent.com/KenEucker/nomos/production/docs/PLUGINS.md",
-        routing: "https://raw.githubusercontent.com/KenEucker/nomos/production/docs/routing.md"
-      };
-
-      const primaryNav = document.getElementById("primary-nav");
-      const docsNav = document.getElementById("docs-nav");
-      const mainContainer = document.getElementById("main-container");
-      const docsContainer = document.getElementById("docs-container");
-
-      const docsLink = document.getElementById("docs-link");
-      const docsHome = document.getElementById("docs-home");
-
-      async function loadDoc(url) {
-        const res = await fetch(url);
-        if (!res.ok) {
-          document.getElementById("doc-content").innerHTML =
-            "<p>Failed to load document.</p>";
-          return;
-        }
-        const md = await res.text();
-        document.getElementById("doc-content").innerHTML = marked.parse(md);
-      }
-
-      function setActiveDocsLink(key) {
-        docsNav.querySelectorAll("a").forEach((a) => {
-          a.classList.toggle("active", a.getAttribute("href") === `#${key}`);
-        });
-      }
-
-      function enterDocsMode(docKey = "intro") {
-        primaryNav.classList.add("hidden");
-        mainContainer.classList.add("hidden");
-        docsNav.classList.remove("hidden");
-        docsContainer.classList.remove("hidden");
-
-        if (DOCS[docKey]) {
-          loadDoc(DOCS[docKey]);
-          setActiveDocsLink(docKey);
-        }
-      }
-
-      function exitDocsMode() {
-        docsNav.classList.add("hidden");
-        mainContainer.classList.remove("hidden");
-        docsContainer.classList.add("hidden");
-        primaryNav.classList.remove("hidden");
-        history.pushState("", document.title, window.location.pathname);
-      }
-
-      docsLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        enterDocsMode("intro");
-      });
-
-      docsHome.addEventListener("click", (e) => {
-        e.preventDefault();
-        exitDocsMode();
-      });
-
-      window.addEventListener("hashchange", () => {
-        const key = location.hash.replace("#", "");
-        if (DOCS[key]) enterDocsMode(key);
-      });
-
-      if (location.hash && DOCS[location.hash.replace("#", "")]) {
-        enterDocsMode(location.hash.replace("#", ""));
-      }
-    </script>
-
-    <script>
       (function () {
-        // Smooth scroll for same-page anchors
-        document.addEventListener("click", function (e) {
-          var a = e.target.closest && e.target.closest('a[href^="#"]');
-          if (!a) return;
-          var href = a.getAttribute("href");
-          if (!href || href === "#") return;
-          var el = document.querySelector(href);
-          if (!el) return;
-          e.preventDefault();
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-          history.pushState(null, "", href);
+        // Theme toggle
+        const root = document.documentElement;
+        const themeKey = "nomos-theme";
+        const themeToggle = document.getElementById("theme-toggle");
+
+        function getPreferredTheme() {
+          const stored = localStorage.getItem(themeKey);
+          if (stored) return stored;
+          return window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+
+        function setTheme(theme) {
+          root.setAttribute("data-theme", theme);
+          localStorage.setItem(themeKey, theme);
+        }
+
+        setTheme(getPreferredTheme());
+
+        themeToggle.addEventListener("click", function () {
+          const current = root.getAttribute("data-theme");
+          setTheme(current === "light" ? "dark" : "light");
         });
 
-        // Theme preference
-        var root = document.documentElement;
-        var key = "nomos-theme";
-        var stored = null;
-        try { stored = localStorage.getItem(key); } catch (_) {}
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
 
-        if (stored === "light" || stored === "dark") root.setAttribute("data-theme", stored);
-        else root.setAttribute("data-theme", "dark");
+        mobileMenuBtn.addEventListener("click", function () {
+          const isOpen = mobileMenu.classList.contains("active");
+          mobileMenu.classList.toggle("active");
+          mobileMenuBtn.setAttribute("aria-expanded", !isOpen);
+        });
 
-        var btn = document.getElementById("themeBtn");
-        if (btn) {
-          btn.addEventListener("click", function () {
-            var cur = root.getAttribute("data-theme") === "light" ? "light" : "dark";
-            var next = cur === "light" ? "dark" : "light";
-            root.setAttribute("data-theme", next);
-            try { localStorage.setItem(key, next); } catch (_) {}
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.remove("active");
+            mobileMenuBtn.setAttribute("aria-expanded", "false");
           });
+        });
+
+        // Smooth scroll for anchor links
+        document.addEventListener("click", function (e) {
+          const link = e.target.closest('a[href^="#"]');
+          if (!link) return;
+
+          const href = link.getAttribute("href");
+          if (href === "#") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+          }
+
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            history.pushState(null, "", href);
+          }
+        });
+
+        // Documentation loading from GitHub
+        const DOCS_BASE =
+          "https://raw.githubusercontent.com/KenEucker/nomos/production/";
+        const docsContent = document.getElementById("docs-content");
+
+        const DOCS_MAP = {
+          "docs-installation": "docs/installation.md",
+          "docs-project-structure": "docs/project-structure.md",
+          "docs-configuration": "docs/CONFIG.md",
+          "docs-filepath-apis": "docs/routing.md",
+          "docs-plugin-system": "docs/PLUGINS.md",
+          "docs-authorization": "docs/authorization.md",
+          "docs-observability": "docs/observability.md",
+          "docs-first-api": "docs/tutorial.md",
+          "docs-building-plugins": "docs/building-plugins.md",
+          "docs-working-with-llms": "docs/llm-guide.md",
+          "docs-deployment": "docs/deployment.md",
+        };
+
+        // Check for marked.js availability
+        function parseMarkdown(text) {
+          if (typeof marked !== "undefined") {
+            return marked.parse(text);
+          }
+          // Simple fallback if marked.js not loaded
+          return (
+            "<pre>" +
+            text.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+            "</pre>"
+          );
+        }
+
+        async function loadDoc(docKey) {
+          const path = DOCS_MAP[docKey];
+          if (!path) return;
+
+          docsContent.innerHTML = "<p>Loading documentation...</p>";
+
+          try {
+            const res = await fetch(DOCS_BASE + path);
+            if (!res.ok) {
+              docsContent.innerHTML =
+                "<h3>Documentation</h3><p>This documentation page is coming soon. Visit the <a href='https://github.com/KenEucker/nomos/tree/production/docs' target='_blank' rel='noopener noreferrer'>GitHub repository</a> for the latest documentation.</p>";
+              return;
+            }
+            const md = await res.text();
+            docsContent.innerHTML = parseMarkdown(md);
+          } catch (e) {
+            docsContent.innerHTML =
+              "<h3>Documentation</h3><p>Unable to load documentation. Please visit the <a href='https://github.com/KenEucker/nomos/tree/production/docs' target='_blank' rel='noopener noreferrer'>GitHub repository</a>.</p>";
+          }
+        }
+
+        // Handle doc navigation clicks
+        document.querySelectorAll(".docs-nav-link").forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            const href = link.getAttribute("href");
+            if (href.startsWith("#docs-")) {
+              e.preventDefault();
+              const docKey = href.replace("#", "");
+              loadDoc(docKey);
+              history.pushState(null, "", href);
+            }
+          });
+        });
+
+        // Handle initial hash
+        if (window.location.hash.startsWith("#docs-")) {
+          const docKey = window.location.hash.replace("#", "");
+          if (DOCS_MAP[docKey]) {
+            loadDoc(docKey);
+          }
         }
       })();
     </script>
+
+    <!-- Load marked.js for markdown rendering -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+      defer
+    ></script>
   </body>
 </html>
